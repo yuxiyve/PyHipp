@@ -43,6 +43,9 @@ with lock:
         # create a list (named clist) of nevns environments with the 
         # prefix envprefix
         # add code here
+        clist = [None] * int(nenvs)
+        for i in range(int(nenvs)):
+            clist[i] = envprefix + str(i)
     else:
         # load hickle file
         clist = hickle.load(file_path)
@@ -50,9 +53,11 @@ with lock:
         if pmode == WRITE_MODE:
             # append item to end of list
             # add code here
+            clist.append(env)
         else:    
             # get and remove env from clist
             # add code here
+            clist.remove(env)
             # return env name
             print(env)
 
