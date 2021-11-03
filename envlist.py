@@ -57,7 +57,7 @@ with lock:
         else:    
             # get and remove env from clist
             # add code here
-            clist.remove(env)
+            env = clist.pop(pmode)
             # return env name
             print(env)
 
